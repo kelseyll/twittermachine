@@ -1,0 +1,106 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <body>
+    <!-- Swiper -->
+    <section>
+        <div class="filters">
+            <div class="filter"></div>
+            <div class="filter"></div>
+        </div>
+        <div class="swiper-container mySwiper swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <div id="carouselContainer" class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="testimonial _small">
+                        <p><q>Bandcamp is the only good website. I mean that literally. It's the only website that actually made the world better. Delete the entire internet, just leave #bandcamp. #BandcampFriday</q></p>
+                    </div>
+                    <div class="testimonial _small">
+                        <p><q>I love buying music on @Bandcamp it’s still the best way to support working musicians. Streaming music can blow my nose</q></p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial _large">
+                        <p><q>thank you @Bandcamp for all of the new music 🙏🏾 you really pulled january out of the trash</q></p>
+                    </div>
+                    <div class="testimonial _small">
+                        <p><q>i always pay more than asking price on @Bandcamp because it's truly not a big difference to add $5 or whatever.. for me a small but meaningful way to demonstrate that i appreciate what you've made, that your work has value, that art has value.</q></p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial _small">
+                        <p><q>If we decided to burn the entire internet to the ground tomorrow, Bandcamp would be the only thing I would try to protect. You. Are. The. Best.</q></p>
+                    </div>
+                    <div class="testimonial _large">
+                        <p><q>we don't deserve bandcamp</q></p>
+                    </div>
+                </div>
+                    <div class="swiper-slide">
+                    <div class="testimonial _small">
+                        <p><q>Hello all non-musicians, campaign peeps, music fans! @Bandcamp is EXCELLENT, their moral standards are HIGH, and their overhead is LOW. On Friday, 100% of your digital purchase goes directly to the independent artist who has music for sale here. Support musicians HERE, it is REAL</q></p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial _large">
+                        <p><q>Bandcamp is the best thing that happened to indie music these last couple of years. Hats off 🌹</q></p>
+                    </div>
+                    <div class="testimonial _large">
+                        <p><q>Just @Bandcamp being absolute rides yet again 💙🤘</q></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <button onclick="addNode()">Add Node</button>
+        <div class="bottom-section"></div>
+    </section>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: "auto",
+            spaceBetween: 0,
+            centeredSlides: true,
+            // loop: true,
+            pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            lazy: true,
+            autoHeight: true,
+            },
+        });
+        function addNode() {
+            //Create new carousel card
+            var carouselCard = document.createElement("div");
+            carouselCard.className = "swiper-slide";
+
+            // Create new testimonial container
+            var carouselCardTestimonial = document.createElement("div");
+            carouselCardTestimonial.className = "testimonial _small";
+
+            // Conjour testimonial string and inject it into testimonial container
+            var testimonialString = document.createTextNode("this is a testimonial");
+            carouselCardTestimonial.appendChild(testimonialString);
+
+            // Attach testimonial container to carousel card
+            carouselCard.appendChild(carouselCardTestimonial);
+
+            //Inject carousel card into carousel container
+            document.getElementById("carouselContainer").appendChild(carouselCard);
+        }
+    </script>
+
+    <!-- Initialize Swiper -->
+    <script type="text/javascript">
+        // apply ._small to .testimonial > 100 characters
+        // apply ._large to .testimonial =< 100 characters
+
+        // based on desired max height of ~400px, calculate height of incoming testimonials..
+            // wrap one .testimonial div in .swiper-slide if the height is more than 80% of 400px
+            // wrap two .testimonial divs in .swiper-slide if the sum of height is more than 80% of 400px
+    </script>
+</body>
+</html>

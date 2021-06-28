@@ -1,0 +1,102 @@
+html,
+body {
+    position: relative;
+    height: 100%;
+    background: #eee;
+    margin: 0;
+    padding: 0;
+}
+.swiper-container {
+    width: 100%;
+}
+.swiper-slide {
+    padding: 10px;
+    font-size: 18px;
+    background: #fff;
+    width: 80%;
+    height: 100%;
+}
+.swiper-slide {
+    flex-shrink: 0;
+    transition-property: transform;
+}
+.swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+.swiper-container-android .swiper-slide,
+.swiper-wrapper {
+    transform: translate3d(0px, 0, 0);
+}
+.swiper-container-pointer-events {
+    touch-action: pan-y;
+}
+
+/* testimonial styles */
+.testimonial {
+    border: 1px solid black;
+    margin-bottom: 40px;
+    font-family: Helvetica Neue, Arial, sans-serif;
+}
+
+.testimonial p {
+    margin-top: 0;
+}
+
+.testimonial p q::before {
+    display: block;
+}
+
+.testimonial p q::after {
+    content: no-close-quote;
+}
+
+.testimonial._large {
+    background-color: aliceblue;
+    font-size: 27px;
+}
+
+.testimonial._large p {
+    line-height: 32px;
+    font-weight: 500;
+}
+
+.testimonial._small {
+    background-color: cornsilk;
+    font-size: 20px;
+}
+
+.testimonial._small p {
+    line-height: 28px;
+}
+
+/* filter styles */
+.filter {
+    height: 53px;
+    width: 100vw;
+    background-color: dimgrey;
+}
+
+.filter:nth-of-type(2) {
+    background-color: grey;
+}
+
+/* bottom section styles */
+.bottom-section {
+    background-color: black;
+    height: 400px;
+    width: 100%;
+}
