@@ -1,8 +1,9 @@
 html,
 body {
+    -webkit-font-smoothing: antialiased;
     position: relative;
     height: 100%;
-    background: #eee;
+    /* background: #eee; */
     margin: 0;
     padding: 0;
 }
@@ -10,7 +11,7 @@ body {
     width: 100%;
 }
 .swiper-slide {
-    padding: 10px;
+    padding: 30px 10px 10px 10px;
     font-size: 18px;
     background: #fff;
     width: 80%;
@@ -58,6 +59,7 @@ body {
 
 .testimonial p q::before {
     display: block;
+    line-height: 10px;
 }
 
 .testimonial p q::after {
@@ -96,7 +98,7 @@ body {
 
 /* bottom section styles */
 .bottom-section {
-    background-color: black;
+    background: #ddd;
     height: 400px;
     width: 100%;
 }

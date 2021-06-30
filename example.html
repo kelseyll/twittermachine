@@ -3,104 +3,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <body>
-    <!-- Swiper -->
+        <style>
+            .swiper-slide {
+                max-height: 250px;
+            }
+            .swiper-slide-active,
+            .swiper-slide-next,
+            .swiper-slide-prev {
+                max-height: 900px;
+            }
+            .testimonial._small,
+            .testimonial._large {
+                background: transparent;
+                border: none
+            }
+        </style>
     <section>
         <div class="filters">
             <div class="filter"></div>
             <div class="filter"></div>
         </div>
+        <!-- Swiper -->
         <div class="swiper-container mySwiper swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
             <div id="carouselContainer" class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="testimonial _small">
-                        <p><q>Bandcamp is the only good website. I mean that literally. It's the only website that actually made the world better. Delete the entire internet, just leave #bandcamp. #BandcampFriday</q></p>
-                    </div>
-                    <div class="testimonial _small">
-                        <p><q>I love buying music on @Bandcamp it’s still the best way to support working musicians. Streaming music can blow my nose</q></p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial _large">
-                        <p><q>thank you @Bandcamp for all of the new music 🙏🏾 you really pulled january out of the trash</q></p>
-                    </div>
-                    <div class="testimonial _small">
-                        <p><q>i always pay more than asking price on @Bandcamp because it's truly not a big difference to add $5 or whatever.. for me a small but meaningful way to demonstrate that i appreciate what you've made, that your work has value, that art has value.</q></p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial _small">
-                        <p><q>If we decided to burn the entire internet to the ground tomorrow, Bandcamp would be the only thing I would try to protect. You. Are. The. Best.</q></p>
-                    </div>
-                    <div class="testimonial _large">
-                        <p><q>we don't deserve bandcamp</q></p>
-                    </div>
-                </div>
-                    <div class="swiper-slide">
-                    <div class="testimonial _small">
-                        <p><q>Hello all non-musicians, campaign peeps, music fans! @Bandcamp is EXCELLENT, their moral standards are HIGH, and their overhead is LOW. On Friday, 100% of your digital purchase goes directly to the independent artist who has music for sale here. Support musicians HERE, it is REAL</q></p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial _large">
-                        <p><q>Bandcamp is the best thing that happened to indie music these last couple of years. Hats off 🌹</q></p>
-                    </div>
-                    <div class="testimonial _large">
-                        <p><q>Just @Bandcamp being absolute rides yet again 💙🤘</q></p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
     <section>
-        <button onclick="addNode()">Add Node</button>
         <div class="bottom-section"></div>
     </section>
+
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <!-- Initialize Swiper -->
     <script>
+        // Create array of testimonials, think it needs to be an even length lol
+        const testimonialArray = [
+            "thank you @Bandcamp for all of the new music 🙏🏾 you really pulled january out of the trash",
+            "we don't deserve bandcamp",
+            "Bandcamp is so awesome and sometimes when I think 'the modern age is trash' the first thing I think as I'm coming to my senses is 'but hold up, Bandcamp'",
+            "Bandcamp singlehandedly proving to a crusty old music industry that musicians are not like factory workers on Charlie Chaplin’s assembly line.",
+            "Thank u @Bandcamp for thinking of artists first & throwing a wrench in a machine where money always gets trapped at the top.",
+            "Bandcamp is the only good website. I mean that literally. It's the only website that actually made the world better. Delete the entire internet, just leave #bandcamp. #BandcampFriday",
+            "I love buying music on @Bandcamp it’s still the best way to support working musicians. Streaming music can blow my nose",
+            "All hail @Bandcamp No one has ever tried to buy one of my songs for .003¢ on there.",
+            "The most amazing thing about @Bandcamp is when people pay more money than you've asked for the release. </br></br>Happens a LOT. </br></br>Disproves a lot of cynical things the music industry presumed about music listeners.  A lot of people who love music WANT THE MUSICIANS TO SURVIVE.",
+            "I spent $844.98 on @Bandcamp this year. Damn proud of it, I hope next year to spend more on music than coffee.",
+            "Today is the day: @Bandcamp is waiving their commission and giving 100% of your pay-what-you want purchase to musicians. They make my world go round. I don’t like listing artists we should support because others get left out. But after my tea I will tell you what I’m buying today",
+            "Shout out to @Bandcamp for their undeniable integrity and support for the common musician. Just read the figures from last Friday big love 💗 to all the fans of music ✊🏾",
+            "i'll take this opportunity to once again thank you all for bandcamp.  it's my life, and it's the best example that we CAN have nice things despite all evidence to the contrary. never change.",
+            "In the last 2 months @Bandcamp has paid me 1000% more money than the government and 400% the amount I have ever received from a label",
+            "It seems like @Bandcamp are the only platform that genuinely care if artists have food on their tables or not.",
+            "Bandcamp is the way forward for us all.",
+            "Bandcamp for president!",
+            "in case you don’t hear this enough, the indie artist community appreciates you and all you do. ✌🏽",
+            "Bandcamp is really the best music platform out there, I just go throw their recommendations for maybe 10 minutes a day and end up with a massive backlog of albums to explore",
+            "Bandcamp is an ecosystem based on passion and connection and it feels so good to be a part of it.",
+            "@Bandcamp is my favorite superhero",
+            "I love the United States Postal Service and Bandcamp",
+            "I love Bandcamp so much, i could almost write Bandcamp fan-fic",
+            "Really think the platform is the dogs bollocks when it comes to putting your work up there, even down to the tone of the help guides, it's fun but honest without being patronising and the user interface is just a dream"
+        ];
+
+        // Shuffle testimonial array
+        function shuffleTestimonialArray(testimonialArray) {
+            var m = testimonialArray.length, t, x;
+
+            // While there remain elements to shuffle…
+            while (m) {
+
+            // Pick a remaining element…
+            x = Math.floor(Math.random() * m--);
+
+            // And swap it with the current element.
+            t = testimonialArray[m];
+            testimonialArray[m] = testimonialArray[x];
+            testimonialArray[x] = t;
+            }
+
+            return testimonialArray;
+        }
+
+        // Add 2 testimonials to a carousel card
+        function addTestimonial(i) {
+                // Create HTML skeleton
+                // ---- Create carousel card
+                var carouselCard = document.createElement("div");
+                carouselCard.className = "swiper-slide";
+
+                // ---- Create q tag inside of p tag
+                var carouselCardTestimonialQTag = document.createElement("q")
+                var carouselCardTestimonialQTag2 = document.createElement("q")
+
+                // ---- Create p tag inside testimonial containers
+                var carouselCardTestimonialPTag = document.createElement("p")
+                var carouselCardTestimonialPTag2 = document.createElement("p")
+
+                // ---- Create 2 testimonial containers
+                var carouselCardTestimonialContainer = document.createElement("div");
+                carouselCardTestimonialContainer.className = "testimonial";
+                var carouselCardTestimonialContainer2 = document.createElement("div");
+                carouselCardTestimonialContainer2.className = "testimonial";
+
+                // Inject 2 testimonials into 2 q tags
+                carouselCardTestimonialQTag.innerHTML += testimonialArray[i];
+                carouselCardTestimonialQTag2.innerHTML += testimonialArray[i+1];
+
+                // Assign font size based on char length
+                console.log(testimonialArray[i].length);
+                console.log(testimonialArray[i+1].length);
+                var charThreshold = 100;
+                if (testimonialArray[i].length > charThreshold) {
+                    carouselCardTestimonialContainer.className += " _small";
+                } else {
+                    carouselCardTestimonialContainer.className += " _large";
+                }
+
+                if (testimonialArray[i+1].length <= charThreshold) {
+                    carouselCardTestimonialContainer2.className += " _large";
+                } else {
+                    carouselCardTestimonialContainer2.className += " _small";
+                }
+
+                // Assemble HTML
+                // ---- First testimonial container
+                carouselCardTestimonialPTag.appendChild(carouselCardTestimonialQTag);
+                carouselCardTestimonialContainer.appendChild(carouselCardTestimonialPTag);
+                // ---- Second testimonial container
+                carouselCardTestimonialPTag2.appendChild(carouselCardTestimonialQTag2);
+                carouselCardTestimonialContainer2.appendChild(carouselCardTestimonialPTag2);
+                // ---- Append testimonial containers to Carousel Card
+                carouselCard.appendChild(carouselCardTestimonialContainer);
+                carouselCard.appendChild(carouselCardTestimonialContainer2);
+                console.log(carouselCard);
+
+                // Inject carousel card into carousel container
+                document.getElementById("carouselContainer").appendChild(carouselCard);
+        };
+
+        // Events
+        // -- 1. Shuffle the TestimonialArray
+        shuffleTestimonialArray(testimonialArray);
+
+        // -- 2. Inject all testimonials (with markup) into carousel container
+        for (let i = 0; i < testimonialArray.length; i+=2) {
+            addTestimonial(i);
+        }
+
+        // -- 3. Initialize Swiper
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: "auto",
             spaceBetween: 0,
             centeredSlides: true,
-            // loop: true,
             pagination: {
             el: ".swiper-pagination",
             clickable: true,
-            lazy: true,
+            calculateHeight: true,
             autoHeight: true,
             },
         });
-        function addNode() {
-            //Create new carousel card
-            var carouselCard = document.createElement("div");
-            carouselCard.className = "swiper-slide";
 
-            // Create new testimonial container
-            var carouselCardTestimonial = document.createElement("div");
-            carouselCardTestimonial.className = "testimonial _small";
-
-            // Conjour testimonial string and inject it into testimonial container
-            var testimonialString = document.createTextNode("this is a testimonial");
-            carouselCardTestimonial.appendChild(testimonialString);
-
-            // Attach testimonial container to carousel card
-            carouselCard.appendChild(carouselCardTestimonial);
-
-            //Inject carousel card into carousel container
-            document.getElementById("carouselContainer").appendChild(carouselCard);
+        // Get height of swiper-slide-next
+        getHeight();
+        function getHeight() {
+            var elmnt = document.getElementById("carouselContainer");
+            var txt = "Height" + elmnt.offsetHeight + "px<br>";
+            txt += "Width" + elmnt.offsetWidth + "px";
+            console.log(txt);
         }
-    </script>
-
-    <!-- Initialize Swiper -->
-    <script type="text/javascript">
-        // apply ._small to .testimonial > 100 characters
-        // apply ._large to .testimonial =< 100 characters
-
-        // based on desired max height of ~400px, calculate height of incoming testimonials..
-            // wrap one .testimonial div in .swiper-slide if the height is more than 80% of 400px
-            // wrap two .testimonial divs in .swiper-slide if the sum of height is more than 80% of 400px
     </script>
 </body>
 </html>
