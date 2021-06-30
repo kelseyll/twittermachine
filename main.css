@@ -11,10 +11,10 @@ body {
     width: 100%;
 }
 .swiper-slide {
-    padding: 30px 10px 10px 10px;
+    padding: 50px 12px 10px 10px;
     font-size: 18px;
     background: #fff;
-    width: 80%;
+    width: 78%;
     height: 100%;
 }
 .swiper-slide {
@@ -60,7 +60,14 @@ body {
 .testimonial p q::before {
     display: block;
     line-height: 10px;
+    font-size: 30px;
 }
+
+.testimonial._large p q::before {
+    font-size: 50px;
+    line-height: 15px;
+}
+
 
 .testimonial p q::after {
     content: no-close-quote;
@@ -69,6 +76,7 @@ body {
 .testimonial._large {
     background-color: aliceblue;
     font-size: 27px;
+    margin-bottom: 50px;
 }
 
 .testimonial._large p {
@@ -89,11 +97,11 @@ body {
 .filter {
     height: 53px;
     width: 100vw;
-    background-color: dimgrey;
+    background-color: #eee;
 }
 
 .filter:nth-of-type(2) {
-    background-color: grey;
+    background-color: #ddd;
 }
 
 /* bottom section styles */
