@@ -3,7 +3,7 @@ body {
     -webkit-font-smoothing: antialiased;
     position: relative;
     height: 100%;
-    /* background: #eee; */
+    background: #ede3c2;
     margin: 0;
     padding: 0;
 }
@@ -13,7 +13,6 @@ body {
 .swiper-slide {
     padding: 50px 12px 10px 10px;
     font-size: 18px;
-    background: #fff;
     width: 78%;
     height: 100%;
 }
@@ -95,18 +94,18 @@ body {
 
 /* filter styles */
 .filter {
-    height: 53px;
+    height: 43px;
     width: 100vw;
-    background-color: #eee;
+    background-color: #e0d6b3;
 }
 
 .filter:nth-of-type(2) {
-    background-color: #ddd;
+    background-color: #d6cba5;
 }
 
 /* bottom section styles */
 .bottom-section {
-    background: #ddd;
+    background: #1d1e1e;
     height: 400px;
     width: 100%;
 }
