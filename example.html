@@ -12,14 +12,18 @@
             .swiper-slide-prev {
                 max-height: 900px;
             }
-            .swiper-slide-prev,
+            .swiper-slide-prev {
+                opacity: 0;
+                transition: opacity 0.2s linear;
+            }
             .swiper-slide-next {
                 opacity: 0.4;
+                transition-property: transform;
             }
             .testimonial._small,
             .testimonial._large {
                 background: transparent;
-                border: none
+                border: none;
             }
         </style>
     <section>

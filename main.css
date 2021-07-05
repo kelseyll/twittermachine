@@ -11,6 +11,27 @@ body {
     width: 100%;
 }
 .swiper-slide {
+    max-height: 250px;
+}
+.swiper-slide-active,
+.swiper-slide-next,
+.swiper-slide-prev {
+    max-height: 900px;
+}
+.swiper-slide-prev {
+    opacity: 0.4;
+    transition-property: transform;
+}
+.swiper-slide-next {
+    opacity: 0.4;
+    transition-property: transform;
+}
+.testimonial._small,
+.testimonial._large {
+    background: transparent;
+    border: none;
+}
+.swiper-slide {
     padding: 50px 12px 10px 10px;
     font-size: 18px;
     width: 78%;
@@ -30,6 +51,7 @@ body {
     z-index: 1;
 }
 .swiper-wrapper {
+    /* padding-left: 20px; */
     position: relative;
     width: 100%;
     z-index: 1;
